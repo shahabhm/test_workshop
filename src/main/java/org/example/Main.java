@@ -1,5 +1,8 @@
-package org.example;public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
-    }
+package org.example;
+
+import org.example.controller.Controller;
+import org.example.data.Data;
+
+public class Main {
+    Controller controller = new Controller();
 }
