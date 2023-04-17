@@ -1,9 +1,9 @@
 package org.example.controller;
 
 import org.example.data.Data;
-import org.example.data.model.Account;
-import org.example.validation.ValidationException;
-import org.example.validation.Validator;
+import org.example.model.Account;
+import org.example.controller.validation.ValidationException;
+import org.example.controller.validation.Validator;
 
 public class Controller {
     Data data;

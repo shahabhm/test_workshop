@@ -1,11 +1,9 @@
 package org.example.data;
 
-import org.example.data.model.Account;
-import org.example.data.model.Book;
+import org.example.model.Account;
+import org.example.model.Book;
 
-import java.security.KeyPair;
 import java.util.ArrayList;
-import java.util.Map;
 
 public class Data {
     public Data() {

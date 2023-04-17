@@ -1,11 +1,26 @@
-package org.example.data.model;
+package org.example.model;
+
+import net.sf.oval.constraint.Length;
+import net.sf.oval.constraint.NotEmpty;
+import net.sf.oval.constraint.NotNull;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class Account {
+public class Account extends Savable {
+
+
+    @NotNull
+    @NotEmpty
+    @Length(max=50)
     String firstName;
+    @NotNull
+    @NotEmpty
+    @Length(max=50)
     String lastName;
+    @NotNull
+    @NotEmpty
+    @Length(max=10, min = 10)
     String ssn;
     int balance;
     HashSet<Book> borrowedBooks;
@@ -56,5 +71,16 @@ public class Account {
         this.ssn = ssn;
         this.balance = balance;
         this.borrowedBooks = new HashSet<>();
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", ssn='" + ssn + '\'' +
+                ", balance=" + balance +
+                ", borrowedBooks=" + borrowedBooks +
+                '}';
     }
 }

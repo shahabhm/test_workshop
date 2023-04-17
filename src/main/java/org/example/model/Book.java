@@ -1,6 +1,10 @@
-package org.example.data.model;
+package org.example.model;
 
-public class Book {
+import java.util.ArrayList;
+
+public class Book extends Savable {
+
+
     String name;
     String genre;
     int totalCount;
@@ -44,5 +48,10 @@ public class Book {
         this.genre = genre;
         this.totalCount = totalCount;
         this.availableStock = availableStock;
+    }
+
+    @Override
+    public void validate() throws Exception {
+
     }
 }
