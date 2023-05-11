@@ -1,6 +1,7 @@
 package org.example.model;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Book extends Savable {
 
@@ -51,7 +52,15 @@ public class Book extends Savable {
     }
 
     @Override
-    public void validate() throws Exception {
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return totalCount == book.totalCount && availableStock == book.availableStock && Objects.equals(name, book.name) && Objects.equals(genre, book.genre);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, genre, totalCount, availableStock);
     }
 }

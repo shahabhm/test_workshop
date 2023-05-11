@@ -6,21 +6,15 @@ import net.sf.oval.constraint.NotNull;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Objects;
 
 public class Account extends Savable {
 
 
-    @NotNull
-    @NotEmpty
-    @Length(max=50)
-    String firstName;
-    @NotNull
-    @NotEmpty
-    @Length(max=50)
+    @NotEmpty String firstName;
+
+
     String lastName;
-    @NotNull
-    @NotEmpty
-    @Length(max=10, min = 10)
     String ssn;
     int balance;
     HashSet<Book> borrowedBooks;
@@ -75,12 +69,19 @@ public class Account extends Savable {
 
     @Override
     public String toString() {
-        return "Account{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", ssn='" + ssn + '\'' +
-                ", balance=" + balance +
-                ", borrowedBooks=" + borrowedBooks +
-                '}';
+        return "Account{" + ", firstName='" + firstName + '\'' + ", lastName='" + lastName + '\'' + ", ssn='" + ssn + '\'' + ", balance=" + balance + ", borrowedBooks=" + borrowedBooks + '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Account account = (Account) o;
+        return balance == account.balance && Objects.equals(firstName, account.firstName) && Objects.equals(lastName, account.lastName) && Objects.equals(ssn, account.ssn) && Objects.equals(borrowedBooks, account.borrowedBooks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, ssn, balance, borrowedBooks);
     }
 }
